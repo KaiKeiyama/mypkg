@@ -9,8 +9,7 @@ jobs:
             - name: build and test
               run: |
                   rsync -av ./ /root/ros2_ws/src/mypkg/
-                  sed -i 's/\r$//' /root/ros2_ws/src/mypkg/test/test.bash
                   rosdep update
                   rosdep install --from-paths /root/ros2_ws/src --ignore-src -r -y
                   cd /root/ros2_ws
-                  bash -xv ./src/mypkg/test/test.bash /root
+                  bash -xv ./src/mypkg/mypkg/test/test.bash /root
