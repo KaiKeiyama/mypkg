@@ -16,6 +16,6 @@ def cb():
 	n += 1
  
 def main():
-	srv = node.create_tmer(0.5, cb)
+	node.create_timer(0.5, cb)
 	rclpy.spin(node)
 
