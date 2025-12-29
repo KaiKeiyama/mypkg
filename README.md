@@ -65,11 +65,11 @@ response:
 example_interfaces.srv.AddTwoInts_Response(sum=541) #541が100番目の素数である
 ```
 # テスト環境
-**os** Ubuntu 24.04
+**OS**-Ubuntu 24.04
 
-**ROS2** Jazzy Jalisco
+**ROS2**-Jazzy Jalisco
 
-**Python** 3.12.3
+**Python**-3.12.3
 
 # ライセンス
 - このソフトウェアパッケージは，3条項BSDライセンスの下，再頒布および使用が許可されます．
