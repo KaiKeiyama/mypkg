@@ -1,6 +1,6 @@
 # 素数判定パッケージ
 [![test](https://github.com/KaiKeiyama/mypkg/actions/workflows/test.yml/badge.svg)](https://github.com/KaiKeiyama/mypkg/actions/workflows/test.yml)
-# 概要
+## 概要
 - このパッケージは素数を取得し、１から何番目の素数であるかを配信します。また、素数が１から何番目の素数であるかも確認できる
 - talker.py:1から順番に整数を取得し配信します。
 - listener.py:受け取った数字が素数である場合に、数字と検出回数(何番目の素数か)を出力します。
@@ -22,7 +22,6 @@ $ source install/setup.bash
 - ローンチファイルを使用する場合
 
 ```
-
 $ ros2 launch mypkg talk_listen.launch.py
 [INFO] [launch]: All log files can be found below /home/kai69/.ros/log/2025-12-29-15-48-59-744285-kaipc-8497
 [INFO] [launch]: Default logging verbosity is set to INFO
@@ -48,14 +47,14 @@ ros2 run mypkg talker
 ```
 
 ### 端末２でlistenerを立ち上げる
-- 素数を順番に出力する
+- 素数を順番に出力する時
 ```
 $ ros2 run mypkg listener
 [INFO] [1766991542.666445444] [prime_listener]: Count:1 | Number:2
 [INFO] [1766991543.665297643] [prime_listener]: Count:2 | Number:3
 ```
 
-- 何番目の素数か出力する
+- 何番目の素数か出力する時
 
 ```
 $ ros2 service call /get_nth_prime example_interfaces/srv/AddTwoInts "{a: 100}" #100番目の素数
@@ -66,7 +65,9 @@ response:
 example_interfaces.srv.AddTwoInts_Response(sum=541) #541が100番目の素数である
 ```
 # テスト環境
-Ubuntu 24.04
+**os** Ubuntu 24.04
+**ROS2** Jazzy Jalisco
+**Python** 3.12.3
 
 # ライセンス
 - このソフトウェアパッケージは，3条項BSDライセンスの下，再頒布および使用が許可されます．
