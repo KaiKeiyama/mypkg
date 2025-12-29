@@ -58,7 +58,7 @@ $ ros2 run mypkg listener
 - 何番目の素数か出力する
 
 ```
-$  ros2 service call /get_nth_prime example_interfaces/srv/AddTwoInts "{a: 100}" #100番目の素数
+$ ros2 service call /get_nth_prime example_interfaces/srv/AddTwoInts "{a: 100}" #100番目の素数
 waiting for service to become available...
 requester: making request: example_interfaces.srv.AddTwoInts_Request(a=100, b=0)
 
