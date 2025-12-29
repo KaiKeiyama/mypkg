@@ -3,12 +3,12 @@
 # 概要
 - このパッケージは素数を取得し、１から何番目の素数であるかを配信します。また、素数が１から何番目の素数であるかも確認できる
 - talker.py:1から順番に整数を取得し配信します。
-- listener.py:受け取った数字が素数である場合に、数字と検出回数を出力します。
-# 用途
-- RSA暗号の鍵生成の初歩である素数の判定を行うことができる。
+- listener.py:受け取った数字が素数である場合に、数字と検出回数(何番目の素数か)を出力します。
+## 用途
+- RSA暗号の鍵生成の初歩である素数判定を行うことができる。
 
 
-# 利用方法
+## 利用方法
 次の手順で利用してください。
 
 ```
@@ -18,7 +18,7 @@ $ colcon build
 $ source install/setup.bash
 ``` 
 
-# 使い方
+## 使い方
 - ローンチファイルを使用する場合
 
 ```
@@ -40,21 +40,30 @@ $ ros2 launch mypkg talk_listen.launch.py
 [listener-2] [INFO] [1766990950.263283574] [listener_node]: Count:10 | Number:29
 ```
 
-- ２つの端末を使用する場合
-端末１でtalkerを立ち上げる
+## ２つの端末を使用する場合
+### 端末１でtalkerを立ち上げる
 
 ```
 ros2 run mypkg talker
 ```
 
-端末２でlistenerで取得
-
+### 端末２でlistenerを立ち上げる
+- 素数を順番に出力する
 ```
-ros2 run mypkg listener
+$ ros2 run mypkg listener
 [INFO] [1766991542.666445444] [prime_listener]: Count:1 | Number:2
 [INFO] [1766991543.665297643] [prime_listener]: Count:2 | Number:3
 ```
 
+- 何番目の素数か出力する
+
+```
+$  ros2 service call /get_nth_prime example_interfaces/srv/AddTwoInts "{a: 100}" #100番目の素数
+waiting for service to become available...
+requester: making request: example_interfaces.srv.AddTwoInts_Request(a=100, b=0)
+
+response:
+example_interfaces.srv.AddTwoInts_Response(sum=541) #541が100番目の素数である
 # テスト環境
 Ubuntu 24.04
 
