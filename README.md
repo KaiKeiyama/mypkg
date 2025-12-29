@@ -1,5 +1,5 @@
 # 素数パッケージ
-[![test](https://github.com/KaiKeiyama/mypkg/blob/main/.github/workflows/test.yml/badge.svg)](https://github.com/KaiKeiyama/mypkg/blob/main/.github/workflows/test.yml)
+[![test](https://github.com/KaiKeiyama/mypkg/actions/workflows/test.yml/badge.svg)](https://github.com/KaiKeiyama/mypkg/actions/workflows/test.yml)
 # 概要
 - このパッケージは素数を取得し、１から何番目の素数であるかを配信します。また、素数が１から何番目の素数であるかも確認できる
 # 用途
