@@ -1,19 +1,20 @@
-import launch
-import launch.actions
-import launch.substitutions
-import launch_ros.actions
+# SPDX-FileCopyrightText: 2025 KaiKeiyama
+# SPDX-License-Identifier: BSD-3-Clause
 
-
+from launch import LaunchDescription
+from launch_ros.actions import Node
 
 def generate_launch_description():
-
-    talker = launch_ros.actions.Node(
-            package='mypkg',
-            executable='talker',
-            )
-    listener = launch_ros.actions.Node(
-            package='mypkg',
-            executable='listener',
+    return LaunchDescription([
+        Node(
+            package='prime_number_generator',
+            executable='prime_talker',
+            name='talker_node'
+        ),
+        Node(
+            package='prime_number_generator',
+            executable='prime_listener',
+            name='listener_node',
             output='screen'
-            )
-    return launch.LaunchDescription([talker, listener])
+        ),
+    ])
