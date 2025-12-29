@@ -7,13 +7,13 @@ from launch_ros.actions import Node
 def generate_launch_description():
     return LaunchDescription([
         Node(
-            package='prime_number_generator',
-            executable='prime_talker',
+            package='mypkg',
+            executable='talker',
             name='talker_node'
         ),
         Node(
-            package='prime_number_generator',
-            executable='prime_listener',
+            package='mypkg',
+            executable='listener',
             name='listener_node',
             output='screen'
         ),
