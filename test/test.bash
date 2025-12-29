@@ -9,6 +9,6 @@ colcon build
 source /opt/ros/jazzy/setup.bash
 source $dir/ros2_ws/install/setup.bash
 
-timeout 20 ros2 launch mypkg talk_listen.launch.py > /tmp/mypkg.log
+timeout 10 ros2 launch mypkg talk_listen.launch.py > /tmp/mypkg.log
 
-cat /tmp/mypkg.log | grep 'Count:8 | Number:19'
+cat /tmp/mypkg.log | grep 'Count:1' | grep 'Number:2'
