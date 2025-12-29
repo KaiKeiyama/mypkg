@@ -66,7 +66,9 @@ example_interfaces.srv.AddTwoInts_Response(sum=541) #541が100番目の素数で
 ```
 # テスト環境
 **os** Ubuntu 24.04
+
 **ROS2** Jazzy Jalisco
+
 **Python** 3.12.3
 
 # ライセンス
