@@ -22,6 +22,7 @@ $ ros2 launch mypkg talk_listen.launch.py
 - 文字を変更(OUTOUSEYO)してモールス信号に変換する場合
 
 ```
+$ ros2 launch mypkg mypkg.launch.py message:="OUTOU SEYO"
 [INFO] [launch]: All log files can be found below /home/kai69/.ros/log/2026-01-04-14-57-39-522577-kaipc-3500
 [INFO] [launch]: Default logging verbosity is set to INFO
 [INFO] [talker-1]: process started with pid [3503]
