@@ -12,14 +12,12 @@ class Talker(Node):
         super().__init__('talker')
         self.pub = self.create_publisher(String, 'topic', 10)
         
-        # パラメータの宣言（デフォルト値は "SOS"）
         self.declare_parameter('message', 'SOS')
         
         self.create_timer(1.0, self.cb)
 
     def cb(self):
         msg = String()
-        # パラメータから送信メッセージを取得
         msg.data = self.get_parameter('message').get_parameter_value().string_value
         self.pub.publish(msg)
 
