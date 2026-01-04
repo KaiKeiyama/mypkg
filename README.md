@@ -35,7 +35,7 @@ $ ros2 launch mypkg talk_listen.launch.py message:="OUTOUSEYO"
 [listener-2] [INFO] [1767506266.113322110] [listener]: Received: OUTOUSEYO -> Morse: --- ..- - --- ..- ... . -.-- ---
 ```
 
-## ノード
+## ノードの説明
 ### talker.py
 文字列を一定間隔で送信します。
 - トピック名:`chatter`
