@@ -1,12 +1,7 @@
-# 素数判定パッケージ
+# モールス変換パッケージ
 [![test](https://github.com/KaiKeiyama/mypkg/actions/workflows/test.yml/badge.svg)](https://github.com/KaiKeiyama/mypkg/actions/workflows/test.yml)
 ## 概要
-- このパッケージは素数を取得し、１から何番目の素数であるかを配信します。また、素数が１から何番目の素数であるかも確認できる
-- talker.py:1から順番に整数を取得し配信します。
-- listener.py:受け取った数字が素数である場合に、数字と検出回数(何番目の素数か)を出力します。
-## 用途
-- RSA暗号の鍵生成の初歩である素数判定を行うことができる。
-
+- 文字をモールス信号に変換して配信します。
 
 ## 利用方法
 次の手順で利用してください。
