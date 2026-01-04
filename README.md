@@ -2,7 +2,7 @@
 [![test](https://github.com/KaiKeiyama/mypkg/actions/workflows/test.yml/badge.svg)](https://github.com/KaiKeiyama/mypkg/actions/workflows/test.yml)
 ## 概要
 - 文字をモールス信号に変換して配信します。アルファベットと数字にのみ可能です。
-## 使い方
+## 実行例
 - デフォルトの文字(SOS)をモールス信号に変換する場合
 
 ```
@@ -33,6 +33,14 @@ $ ros2 launch mypkg talk_listen.launch.py
 [listener-2] [INFO] [1767506265.113252686] [listener]: Received: OUTOUSEYO -> Morse: --- ..- - --- ..- ... . -.-- ---
 [listener-2] [INFO] [1767506266.113322110] [listener]: Received: OUTOUSEYO -> Morse: --- ..- - --- ..- ... . -.-- ---
 ```
+
+# ノード
+**talker.py**
+文字列を一定間隔で送信します。
+
+**listener.py**
+送信された文字列を受信し、モールス信号に変換して出力します。
+
 # テスト環境
 **OS**:Ubuntu 24.04
 
