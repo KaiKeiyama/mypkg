@@ -37,6 +37,7 @@ $ ros2 launch mypkg talk_listen.launch.py
 ## ノード
 - talker.py
 文字列を一定間隔で送信します。
+
 **トピック名**:topic
 - listener.py
 送信された文字列を受信し、モールス信号に変換して出力します。
