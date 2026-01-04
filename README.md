@@ -36,19 +36,20 @@ $ ros2 launch mypkg talk_listen.launch.py message:="OUTOUSEYO"
 ```
 
 ## ノード
-- talker.py
+### talker.py
 文字列を一定間隔で送信します。
-
-**トピック名**:topic
-- listener.py
+- トピック名:`chatter`
+- メッセージ型:`std_msgs/msg/String`
+### listener.py
 送信された文字列を受信し、モールス信号に変換して出力します。
-
+- トピック名:`chatter`
+- メッセージ型:`std_msgs/msg/String`
 ## テスト環境
-**OS**:Ubuntu 24.04
+**OS**: Ubuntu 24.04
 
-**ROS2**:Jazzy Jalisco
+**ROS2**: Jazzy Jalisco
 
-**Python**:3.12.3
+**Python**: 3.12.3
 
 ## ライセンス
 - このソフトウェアパッケージは，3条項BSDライセンスの下，再頒布および使用が許可されます．

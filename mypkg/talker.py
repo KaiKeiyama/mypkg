@@ -10,7 +10,7 @@ from std_msgs.msg import String
 class Talker(Node):
     def __init__(self):
         super().__init__('talker')
-        self.pub = self.create_publisher(String, 'topic', 10)
+        self.pub = self.create_publisher(String, 'chatter', 10)
         
         self.declare_parameter('message', 'SOS')
         
