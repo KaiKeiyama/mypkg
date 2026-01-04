@@ -1,17 +1,22 @@
 #!/bin/bash -xv
 # SPDX-FileCopyrightText: 2025 KaiKeiyama
 # SPDX-License-Identifier: BSD-3-Clause
+
 dir=~
 [ "$1" != "" ] && dir="$1"
 
 cd $dir/ros2_ws
 colcon build
-source /opt/ros/humble/setup.bash
-source $dir/ros2_ws/install/setup.bash
+source install/setup.bash
 
 timeout 10 ros2 launch mypkg talk_listen.launch.py > /tmp/mypkg.log
 
-cat /tmp/mypkg.log | grep 'Count:1' | grep 'Number:2'
+grep -q 'Morse: ... --- ...' /tmp/mypkg.log
+res=$?
 
-echo "ALL TESTS PASSED"
-exit 0
+if [ $res -ne 0 ]; then
+    cat /tmp/mypkg.log
+fi
+
+rm /tmp/mypkg.log
+exit $res

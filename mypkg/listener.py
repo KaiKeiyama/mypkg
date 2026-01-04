@@ -4,44 +4,39 @@
 
 import rclpy
 from rclpy.node import Node
-from std_msgs.msg import Int32
+from std_msgs.msg import String
 
-class PrimeListener(Node):
+
+class Listener(Node):
     def __init__(self):
-        super().__init__('prime_listener')
-        self.subscription = self.create_subscription(
-            Int32,
-            'prime',
-            self.listener_callback,
-            10)
+        super().__init__('listener')
+        self.pub = self.create_subscription(String, 'topic', self.cb, 10)
+        
+        self.morse_code = {
+            'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.',
+            'F': '..-.', 'G': '--.', 'H': '....', 'I': '..', 'J': '.---',
+            'K': '-.-', 'L': '.-..', 'M': '--', 'N': '-.', 'O': '---',
+            'P': '.--.', 'Q': '--.-', 'R': '.-.', 'S': '...', 'T': '-',
+            'U': '..-', 'V': '...-', 'W': '.--', 'X': '-..-', 'Y': '-.--',
+            'Z': '--..', '1': '.----', '2': '..---', '3': '...--',
+            '4': '....-', '5': '.....', '6': '-....', '7': '--...',
+            '8': '---..', '9': '----.', '0': '-----', 'SOS': '... --- ...'
+        }
 
-    def is_prime(self, n):
-        if n < 2: return False
-        for i in range(2, int(n**0.5) + 1):
-            if n % i == 0: return False
-        return True
+    def cb(self, msg):
+        input_text = msg.data.upper()
+        output_text = ""
+        
+        for char in input_text:
+            if char in self.morse_code:
+                output_text += self.morse_code[char] + " "
+            else:
+                output_text += "? "
+        
+        self.get_logger().info(f"Received: {input_text} -> Morse: {output_text}")
 
-    def get_prime_index(self, target_num):
-        count = 0
-        for i in range(2, target_num + 1):
-            if self.is_prime(i):
-                count += 1
-        return count
 
-    def listener_callback(self, msg):
-        val = msg.data
-        index = self.get_prime_index(val)
-        self.get_logger().info(f'Count:{index} | Number:{val}')
-
-def main(args=None):
-    rclpy.init(args=args)
-    node = PrimeListener()
-    try:
-        rclpy.spin(node)
-    except KeyboardInterrupt:
-        pass
-    node.destroy_node()
-    rclpy.shutdown()
-
-if __name__ == '__main__':
-    main()
+def main():
+    rclpy.init()
+    node = Listener()
+    rclpy.spin(node)
